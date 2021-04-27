@@ -9,8 +9,7 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "keywords": [],
-  "author": "",
+  "author": "amoukaled",
   "dependencies": {
     "concurrently": "^6.0.2",
     "connect-mongo": "^4.4.1",
