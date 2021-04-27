@@ -73,16 +73,18 @@ export const logoutApi = async (): Promise<boolean> => {
   }
 }
 
-// TODO try catch
-
 // Get user address
 export const getUserAddress = async () => {
-  const res = await fetch("/api/user/address", { method: "GET" })
+  try {
+    const res = await fetch("/api/user/address", { method: "GET" })
 
-  if (res.status === 200) {
-    const body = await res.json()
-    const address = body.address
-    return address
+    if (res.status === 200) {
+      const body = await res.json()
+      const address = body.address
+      return address
+    }
+    return null
+  } catch (_) {
+    return null
   }
-  return null
 }
