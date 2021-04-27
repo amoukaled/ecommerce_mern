@@ -1,3 +1,5 @@
+# E-Commerce MERN Stack/Typescript Portfolio Project
+
 ## Notice
 
 **This is a portfolio project and it is not ready for production use.**
