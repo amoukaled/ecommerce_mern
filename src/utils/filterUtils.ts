@@ -16,22 +16,7 @@ export const filterDocumentToObject = (document: StockItemDocument) => {
 }
 
 export const filterInvoicesToObjects = (invoices: InvoiceDocument[]) => {
-  return invoices.map((inv: any) => {
-    const filter = inv.toObject()
-
-    filter.items.forEach((item: any) => {
-      delete item.item.__v
-      delete item.item.price
-      delete item.item.currency
-      delete item.item.quantity
-      delete item.item.discount
-    })
-
-    delete filter.__v
-    delete filter.updatedAt
-    filter.createdAt = filter.createdAt.getTime()
-    return filter
-  })
+  return invoices.map((inv: any) => filterInvoiceToObject(inv))
 }
 
 export const filterInvoiceToObject = (invoice: InvoiceDocument & any) => {

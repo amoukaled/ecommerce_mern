@@ -7,7 +7,6 @@ const router = Router()
 // /api/user
 
 // Auth Routes
-// /login POST
 router.post(
   "/login",
   ensureUnAuthenticated,
@@ -18,7 +17,7 @@ router.post(
   }
 )
 
-// /register POST
+//
 router.post(
   "/register",
   ensureUnAuthenticated,
@@ -31,23 +30,18 @@ router.post(
   }
 )
 
-// /logout GET
 router.get("/logout", ensureAuthenticated, UserController.logoutUser)
 
 // Invoice Routes
-// /invoice POST
+
 router.post("/invoice/create", ensureAuthenticated, UserController.postInvoice)
 
-// /invoice/:id Get
 router.get("/invoice/:id", ensureAuthenticated, UserController.getInvoice)
 
-// /invoices
 router.get("/invoices", ensureAuthenticated, UserController.getAllUserInvoices)
 
-// verify session
 router.get("/verify", UserController.verifyUserSession)
 
-// address
 router.get("/address", ensureAuthenticated, UserController.getUserAddress)
 
 // export

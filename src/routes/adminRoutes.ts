@@ -1,24 +1,19 @@
 import { Router } from "express"
 import { ensureAdmin, ensureAuthenticated } from "../config/passport"
-import { createItem, getItems, patchItem, deleteItem, getItemById } from '../controllers/adminController'
+import AdminController from '../controllers/adminController'
 
 const router = Router()
 
 // /api/admin
 
-// Create item /items/create POST
-router.post("/items/create",ensureAuthenticated, ensureAdmin, createItem)
+router.post("/items/create",ensureAuthenticated, ensureAdmin, AdminController.createItem)
 
-// Read items /items GET
-router.get("/items",ensureAuthenticated, ensureAdmin, getItems)
+router.get("/items",ensureAuthenticated, ensureAdmin, AdminController.getItems)
 
-// Read one item /items/:id GET
-router.get("/items/:id",ensureAuthenticated, ensureAdmin, getItemById)
+router.get("/items/:id",ensureAuthenticated, ensureAdmin, AdminController.getItemById)
 
-// Update item /items/:id PATCH
-router.patch("/items/:id",ensureAuthenticated, ensureAdmin, patchItem)
+router.patch("/items/:id",ensureAuthenticated, ensureAdmin, AdminController.patchItem)
 
-// Delete item /items/:id DELETE
-router.delete("/items/:id",ensureAuthenticated, ensureAdmin, deleteItem)
+router.delete("/items/:id",ensureAuthenticated, ensureAdmin, AdminController.deleteItem)
 
 export default router

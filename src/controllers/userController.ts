@@ -103,14 +103,13 @@ namespace UserController {
         const user = await User.findById(userId)
 
         // Creating the invoice
-        // TODO reverse the quantities ifn case of an error
         const invoice = await Invoice.create({
           to: userId,
           items: filteredInvoices,
           delivered: false,
           address: user!!.address
         })
-        // const user = await User.findById(userId)
+        
         user?.invoices.push(invoice._id)
         await user?.save()
         res.status(201).json({id: invoice._id})
